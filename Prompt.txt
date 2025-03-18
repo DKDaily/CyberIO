@@ -1,0 +1,171 @@
+Remember this below index.html code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Translation Tool</title>
+    <script src="C:\Users\dileepkumar.chokkapu\Documents\Automation\CyberIO\ipConverter.js"></script>
+    <link rel="stylesheet" href="styles.css">
+	<script src="C:\Users\dileepkumar.chokkapu\Documents\Automation\CyberIO\ipconverterS1.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">CyberIO</div>
+
+        <div class="dropdown-container">
+            <select id="platform1">
+                <option value="" disabled selected>Select Tool</option>
+                <option value="python">IP Address Converter</option>
+                <option value="javascript">Hash Converter</option>
+                <option value="cpp">URL/Domains Converter</option>
+                </select>
+
+            <select id="platform2">
+                <option value="" disabled selected>Select Platform</option>
+                <option value="python">SentinelOne</option>
+                <option value="javascript">Rapid7</option>
+                <option value="cpp">Securonix</option>
+                </select>
+
+            <button class="translate-button">Translate</button>
+        </div>
+
+        <div class="editor">
+            <textarea id="editor1" placeholder="Input Code"></textarea>
+            <textarea id="editor2" placeholder="Output Code"></textarea>
+        </div>
+    </div>
+</body>
+</html>
+
+and below styles.css code
+
+body {
+    background-image: url('background.webp'); /* Replace with the correct path */
+    background-size: cover; /* Ensures the image covers the whole background */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-attachment: fixed; /* Keeps the background fixed while scrolling */
+    color: #fff; /* Sets text color to white for better contrast */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin: 20px;
+}
+
+.header {
+    font-size: 24px;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+
+.dropdown-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align items from left to right */
+}
+
+select {
+    padding: 10px;
+    background-color: #2c2c3e;
+    color: #fff;
+    border: 1px solid #444;
+    margin-right: 10px; /* Add space between the dropdowns */
+}
+
+.translate-button {
+    background-color: #ADD8E6; /* Light blue background */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.editor {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+textarea {
+    width: 48%; /* Adjust width */
+    height: 650px; /* Adjust height */
+    background-color: #2c2c3e;
+    color: #fff;
+    border: 1px solid #444;
+    padding: 10px;
+    font-family: monospace;
+}
+###################################################################
+
+Now write a javascript when I selected "IP Address Convert" from the first drop down and "SentinelOne" in second dropdown box. 
+When i give the input as below like IP Address seperated by new line
+
+192.168.1.100
+192.168.1.101
+192.168.1.102
+192.168.1.103
+192.168.1.104
+192.168.1.105
+192.168.1.106
+192.168.1.107
+192.168.1.108
+192.168.1.109
+192.168.1.110
+
+OR Input Separated By Comma
+
+192.168.1.100,192.168.1.101,192.168.1.102,192.168.1.103,192.168.1.104,192.168.1.105,192.168.1.106,192.168.1.107,192.168.1.108,192.168.1.109,192.168.1.110
+
+OR Input Separated By Space
+
+192.168.1.100 192.168.1.101 192.168.1.102 192.168.1.103 192.168.1.104 192.168.1.105 192.168.1.106 192.168.1.107 192.168.1.108 192.168.1.109 192.168.1.110
+
+The output should be as
+IP = "192.168.1.100 OR 192.168.1.101 OR 192.168.1.102 OR 192.168.1.103 OR 192.168.1.104 OR 192.168.1.105 OR 192.168.1.106 OR 192.168.1.107 OR 192.168.1.108 OR 192.168.1.109 OR 192.168.1.110"
+
+##############
+
+Just remember 
+i change the below values
+translate-button {
+    background-color: #6b94fa;
+
+.copy-button {
+    background-color: #6b94fa;
+
+and Translate button name to Convert
+
+##################
+Everything working great.
+Now write a javascript named "ipconverterR7" when I selected "IP Address Convert" from the first drop down and "Rapid7" in second dropdown box. 
+When i give the input as below like IP Address seperated by new line
+
+192.168.1.100
+192.168.1.101
+192.168.1.102
+192.168.1.103
+192.168.1.104
+192.168.1.105
+192.168.1.106
+192.168.1.107
+192.168.1.108
+192.168.1.109
+192.168.1.110
+
+OR Input Separated By Comma
+
+192.168.1.100,192.168.1.101,192.168.1.102,192.168.1.103,192.168.1.104,192.168.1.105,192.168.1.106,192.168.1.107,192.168.1.108,192.168.1.109,192.168.1.110
+
+OR Input Separated By Space
+
+192.168.1.100 192.168.1.101 192.168.1.102 192.168.1.103 192.168.1.104 192.168.1.105 192.168.1.106 192.168.1.107 192.168.1.108 192.168.1.109 192.168.1.110
+
+The output should be
+
+where("destination_address" = 192.168.1.100 OR 192.168.1.101 OR 192.168.1.102 OR 192.168.1.103 OR 192.168.1.104 OR 192.168.1.105 OR 192.168.1.106 OR 192.168.1.107 OR 192.168.1.108 OR 192.168.1.109 OR 192.168.1.110),
+where("source_address" = 192.168.1.100 OR 192.168.1.101 OR 192.168.1.102 OR 192.168.1.103 OR 192.168.1.104 OR 192.168.1.105 OR 192.168.1.106 OR 192.168.1.107 OR 192.168.1.108 OR 192.168.1.109 OR 192.168.1.110)

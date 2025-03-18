@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Translation Tool</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to the external CSS file -->
+</head>
+<body>
+    <div class="container">
+        <div class="header">CyberIO</div>
+
+        <div class="dropdown-container">
+            <select id="platform1">
+                <option value="" disabled selected>Select Tool</option>
+                <option value="ipconverter">IP Address Convert</option>
+                <option value="hashconverter">Hash Convert</option>
+                <option value="urlconverter">URL/Domains Convert</option>
+            </select>
+
+            <select id="platform2">
+                <option value="" disabled selected>Select Platform</option>
+                <option value="sentinelone">SentinelOne</option>
+                <option value="rapid7">Rapid7</option>
+                <option value="securonix">Securonix</option>
+            </select>
+
+            <button class="convert-button" id="convertButton">Convert</button>
+            <button class="copy-button" id="copyButton">Copy</button>
+            <button class="clear-button" id="clearButton">Clear</button>
+        </div>
+
+        <div class="editor">
+            <textarea id="editor1" placeholder="Input Box"></textarea>
+            <div class="output-container">
+                <textarea id="editor2" placeholder="Output Box"></textarea>
+                <button class="clear-output-button" id="clearOutputButton">Clear Output</button>
+            </div>
+        </div>
+
+        <!-- Popup Message -->
+        <div id="popup" class="popup">Output is copied to clipboard</div>
+    </div>
+
+    <script src="ipconverterS1.js" defer></script>
+    <script src="ipconverterR7.js" defer></script>
+    <script>
+        document.getElementById('convertButton').addEventListener('click', function() {
+            const platform1 = document.getElementById('platform1').value;
+            const platform2 = document.getElementById('platform2').value;
+
+            // Clear previous output
+            const outputBox = document.getElementById('editor2');
+            outputBox.value = '';
+
+            if (platform1 === 'ipconverter' && platform2 === 'sentinelone') {
+                if (typeof convertIP_SentinelOne === 'function') {
+                    convertIP_SentinelOne();
+                } else {
+                    outputBox.value = 'IP Address conversion for SentinelOne is not implemented yet';
+                }
+            } else if (platform1 === 'ipconverter' && platform2 === 'rapid7') {
+                if (typeof convertIP_Rapid7 === 'function') {
+                    convertIP_Rapid7();
+                } else {
+                    outputBox.value = 'IP Address conversion for Rapid7 is not implemented yet';
+                }
+            } else {
+                outputBox.value = 'Unsupported tool/platform combination';
+            }
+        });
+
+        document.getElementById('copyButton').addEventListener('click', function() {
+            const outputBox = document.getElementById('editor2');
+            outputBox.select();
+            document.execCommand('copy');
+
+            const popup = document.getElementById('popup');
+            popup.classList.add('show');
+            setTimeout(() => {
+                popup.classList.remove('show');
+            }, 2000);
+        });
+
+        document.getElementById('clearButton').addEventListener('click', function() {
+            document.getElementById('editor1').value = '';
+            document.getElementById('editor2').value = '';
+        });
+
+        document.getElementById('clearOutputButton').addEventListener('click', function() {
+            document.getElementById('editor2').value = '';
+        });
+    </script>
+</body>
+</html>
